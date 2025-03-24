@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>TO DO OR NOT TO DO</header>
+    <form action="" id="new-task-form">
+        <div>
+            <label for="title">Title</label>
+            <input type="text">
+        </div>
+
+        <div>
+            <label for="description">Description</label>
+            <input type="text">
+        </div>
+
+        <div>
+            <label for="duedate">Due Date</label>
+            <input type="datetime-local">
+        </div>
+
+        <div>
+            <label for="">Priority</label>
+
+            <select name="urgency" id="urgency">
+                <option value="urgent">Urgent</option>
+                <option value="not-urgent">Not Urgent</option>
+            </select>
+
+            <select name="importance" id="importance">
+                <option value="important">Important</option>
+                <option value="not-important">Not Important</option>
+            </select>
+
+        </div>
+
+        <button type="button" id="add-new-task">Add task</button>
+    </form>
+</body>
+</html>
