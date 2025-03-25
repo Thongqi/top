@@ -1,14 +1,16 @@
 import { displayTask } from "./displaytasks";
-import { checkIfLocalStoragePresent, populateStorage } from "./localstorage.js"
+import { populateStorage } from "./localstorage.js"
+import { format } from "date-fns"
+import { Tasks } from "./index.js";
 
 const DAYINSECONDS = 86400000;
-let Tasks = checkIfLocalStoragePresent();
+
 
 export function Task(title, description, dueDate, priority, projectname){
 
     this.title = title;
     this.description = description ;
-    this.dueDate = dueDate ;
+    this.dueDate = format(dueDate, 'dd/MM/yyyy');
     this.priority = priority;
     this.project = projectname;
     this.id = crypto.randomUUID();

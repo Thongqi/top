@@ -1,19 +1,64 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: 
+        "header header"
+        "sidebar content";
+}
+
+
 .content{
+    grid-area: content;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
 }
 
-#new-task-form div{
-  
+.content > div {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid tan;
+    background-color: darkgray;
 }
 
-#new-task-form div label{
+.content > div > div{
+    width: 125px;
+    background-color: teal;
+    color: white;
+    border-radius: 10px;
+}
+
+.header {
+    grid-area:header;
+    
+    
+}
+
+#new-task-form div, .task-modal div{
+  padding: 5px 0;
+}
+
+
+#new-task-form div label, .task-modal label{
     width: 100px;
     text-align: left;
     display: inline-block;
 }
 
-#task-modal{
-    display:none;
+.sidebar {
+    grid-area: sidebar;
+}
+
+.task-modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 20vw;
+    top: 10vw;
+    left: 45vw;
+    background-color: blanchedalmond;
+    box-shadow: 4px 2px 4px gray;
+    padding: 10px;
+    border-radius: 10px;
+
 }

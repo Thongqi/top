@@ -1,8 +1,13 @@
-import { Tasks } from "./addtask.js"
+// import { Tasks } from "./addtask.js"
 
 export function displayTask(tasks){
+    clearTasksDom();
+
     for (const task of tasks){
         const container = document.createElement('div');
+        container.id = task.id;
+        container.classList.add('task');
+
         const title = document.createElement('p');
         title.innerHTML = task.title;
 
@@ -14,6 +19,15 @@ export function displayTask(tasks){
 
         prioritygrid.append(container);
     }
+}
+
+function clearTasksDom(){
+    const grids = Array.from(document.querySelectorAll('.content div'));
+
+    grids.forEach(grid => {
+        grid.innerHTML = '';
+    });
+    
 }
 
 function checkpriority(task){
