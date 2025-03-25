@@ -3,3 +3,17 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
 }
+
+#new-task-form div{
+  
+}
+
+#new-task-form div label{
+    width: 100px;
+    text-align: left;
+    display: inline-block;
+}
+
+#task-modal{
+    display:none;
+}

@@ -1,7 +1,11 @@
-import { Tasks } from "./addtask.js"
+export function populateStorage(Tasks){
+    localStorage.setItem("tasks", JSON.stringify(Tasks));
+}
 
-Tasks.onchange = populateStorage(Tasks);
+export function checkIfLocalStoragePresent(){
+    return retrieveLocalStorage() || [];
+}
 
-function populateStorage(Tasks){
-    localstorage.setItem("tasks", Tasks);
+function retrieveLocalStorage(){
+    return JSON.parse(localStorage.getItem("tasks"));
 }

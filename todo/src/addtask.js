@@ -1,5 +1,8 @@
+import { displayTask } from "./displaytasks";
+import { checkIfLocalStoragePresent, populateStorage } from "./localstorage.js"
+
 const DAYINSECONDS = 86400000;
-let Tasks = [];
+let Tasks = checkIfLocalStoragePresent();
 
 export function Task(title, description, dueDate, priority, projectname){
 
@@ -16,15 +19,21 @@ export function addNewTask(){
 
     let button = document.querySelector('#add-new-task');
     button.addEventListener('click', function(){
-        let title = document.querySelector('#new-task-form #title');
-        let description = document.querySelector('#new-task-form #description') || null;
-        let dueDate = document.querySelector('#new-task-form #duedate') || new Date(+new Date() + DAYINSECONDS);
+        let title = document.querySelector('#new-task-form #title').value;
+        let description = document.querySelector('#new-task-form #description').value || null;
+        let dueDate = document.querySelector('#new-task-form #duedate').value || new Date(+new Date() + DAYINSECONDS);
         let priority = setPriority();
-        let project = document.querySelector('#new-task-form #project') || null;
+        let project = document.querySelector('#new-task-form #project').value || null;
         
-        var newtask = Task(title, description, dueDate, priority, project);
+        var newtask = new Task(title, description, dueDate, priority, project);
         Tasks.push(newtask);
+        console.log(Tasks);
+
+        displayTask(Tasks);
+        populateStorage(Tasks)
     });
+
+    
 
 };
 
