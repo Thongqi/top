@@ -1,4 +1,12 @@
 import { Tasks } from "./index.js";
+import { parse } from "date-fns";
+
+let removeTimezone = (date) => {
+    date = new Date(date);
+    return new Date(
+      date.valueOf() + date.getTimezoneOffset() * 60 * 1000
+    );
+ };
 
 export function displaytaskmodal(){
     let taskdetails;
@@ -14,7 +22,7 @@ export function displaytaskmodal(){
 
             modal.querySelector('#task-title').value = taskdetails.title;
             modal.querySelector('#task-description').value = taskdetails.description;
-            modal.querySelector('#task-duedate').value = taskdetails.dueDate;
+            modal.querySelector('#task-duedate').valueAsDate = parse(taskdetails.dueDate, 'dd/MM/yyyy', new Date());
 
 
         })
@@ -25,6 +33,6 @@ export function displaytaskmodal(){
 
 function getTaskDetails(taskId){
     const taskdetails = Tasks.filter(task => task.id == taskId);
-
+    console.log(taskdetails[0])
     return taskdetails[0];
 }

@@ -1,9 +1,30 @@
+:root {
+    --primary-bg: #E0F7FA;        /* Bright Aqua - Background */
+    --accent-color: #80DEEA;      /* Vivid Cyan - Accent */
+    --button-color: #425afa;      /* Deep Purple - Button */
+    --button-hover: #9C27B0;      /* Bright Purple - Button Hover */
+    --text-color: #2a3163;        /* Indigo - Text */
+}
+
 body {
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-areas: 
         "header header"
         "sidebar content";
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+}
+
+button{
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: var(--button-color);
+}
+
+button:hover{
+    background-color: var(--button-hover);
+    cursor: pointer;
 }
 
 
@@ -12,26 +33,47 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    
 }
 
 .content > div {
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid tan;
-    background-color: darkgray;
+    border: 1px solid var(--button-hover);
+    background-color: var(--primary-bg);
+    align-content: baseline;
+    gap: 5px; 
+    padding: 0.5rem; 
 }
 
 .content > div > div{
     width: 125px;
-    background-color: teal;
-    color: white;
+    background-color: white;
+    color: var(--text-color);
     border-radius: 10px;
+    padding: 0.5rem;
+    border: var(--button-color) 1px solid;
+}
+
+.content > div > div p {
+    pointer-events: none;
 }
 
 .header {
     grid-area:header;
     
     
+}
+
+#new-task-form {
+    width: fit-content;
+    padding: 10px 20px;
+    border: solid 1px var(--accent-color);
+    border-radius: 5px;
+    position: fixed;
+    top: 10vw;
+    left: 40vw;
+    background-color: white;
 }
 
 #new-task-form div, .task-modal div{
@@ -45,8 +87,29 @@ body {
     display: inline-block;
 }
 
+#new-task-form button{
+    float: right;
+    margin-top: 0.5rem;
+    background-color: var(--button-color);
+
+    color: white;
+}
+
 .sidebar {
     grid-area: sidebar;
+    padding: 10px;
+    border-right: 2px solid var(--button-color);
+    height: 90vh;
+}
+
+.sidebar ul li{
+    list-style-type: none;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.sidebar button{
+    background-color: var(--button-color);
+    color: white;
 }
 
 .task-modal{
