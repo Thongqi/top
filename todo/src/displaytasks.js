@@ -1,5 +1,7 @@
 // import { Tasks } from "./addtask.js"
 
+import { format, parseISO } from "date-fns";
+
 export function displayTask(tasks){
     clearTasksDom();
 
@@ -12,7 +14,7 @@ export function displayTask(tasks){
         title.innerHTML = task.title;
 
         const dueDate = document.createElement('p');
-        dueDate.innerHTML = task.dueDate;
+        dueDate.innerHTML = format(task.dueDate, 'dd/MM/yyyy');
 
         container.append(title, dueDate);
         var prioritygrid = checkpriority(task);

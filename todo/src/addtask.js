@@ -11,12 +11,28 @@ export function Task(title, description, dueDate, priority, projectname){
 
     this.title = title;
     this.description = description ;
-    this.dueDate = format(dueDate, 'dd/MM/yyyy');
+    this.dueDate = new Date(dueDate).toISOString(); //store in ISOstring to offset timezone
     this.priority = priority;
     this.project = projectname;
     this.id = crypto.randomUUID();
 
 };
+
+export function displayNewTaskForm(e){
+    var form = document.querySelector('#new-task-form');
+
+    // window.addEventListener('click', function(e){
+
+        if (e.target.id == 'add-task'){
+            form.style.display = 'block';
+        }
+        else{
+            form.style.display = 'none';
+        }
+    
+    // })
+  
+}
 
 export function addNewTask(){
 
@@ -35,9 +51,6 @@ export function addNewTask(){
         displayTask(Tasks);
         populateStorage(Tasks)
     });
-
-    
-
 };
 
 function setPriority(){

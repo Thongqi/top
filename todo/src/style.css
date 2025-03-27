@@ -74,6 +74,7 @@ button:hover{
     top: 10vw;
     left: 40vw;
     background-color: white;
+    display: none;
 }
 
 #new-task-form div, .task-modal div{
