@@ -27,16 +27,18 @@ button:hover{
     cursor: pointer;
 }
 
-
-.content{
+.content {
     grid-area: content;
+}
+
+.content .priority{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    
+    height: 100%;
 }
 
-.content > div {
+.content .priority > div {
     display: flex;
     flex-wrap: wrap;
     border: 1px solid var(--button-hover);
@@ -46,7 +48,7 @@ button:hover{
     padding: 0.5rem; 
 }
 
-.content > div > div{
+.content .priority > div > div{
     width: 125px;
     background-color: white;
     color: var(--text-color);

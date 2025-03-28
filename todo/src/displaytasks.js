@@ -16,6 +16,9 @@ export function displayTask(tasks){
         const dueDate = document.createElement('p');
         dueDate.innerHTML = format(task.dueDate, 'dd/MM/yyyy');
 
+        const project = document.createElement('mark');
+        project.innerHTML = task.project;
+        
         container.append(title, dueDate);
         var prioritygrid = checkpriority(task);
 
