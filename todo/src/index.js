@@ -17,7 +17,7 @@ displaytaskmodal();
 // displayNewTaskForm();
 
 window.addEventListener('click', function(e){
-    console.log(e.target.id)
     displayNewTaskForm(e);
     addProject(e);
+    displaytaskmodal(e);
 })
