@@ -16,16 +16,13 @@ body {
     color: var(--text-color);
 }
 
-button{
+button, #add-task{
     padding: 5px 10px;
     border-radius: 10px;
     background-color: var(--button-color);
 }
 
-button:hover{
-    background-color: var(--button-hover);
-    cursor: pointer;
-}
+
 
 
 .content{
@@ -33,30 +30,56 @@ button:hover{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    
+    gap: 1rem;
+    padding: 0 1rem;
 }
 
+.content h3 {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    background-color: #c6b7a3;
+    margin-bottom: 5px;
+}
 .content > div {
-    display: flex;
+
     flex-wrap: wrap;
     border: 1px solid var(--button-hover);
     background-color: var(--primary-bg);
     align-content: baseline;
     gap: 5px; 
     padding: 0.5rem; 
+    border-radius: 10px;
 }
 
-.content > div > div{
+.content > div > div {
+    display: flex;
+}
+.content > div > div > div{
     width: 125px;
     background-color: white;
     color: var(--text-color);
     border-radius: 10px;
     padding: 0.5rem;
     border: var(--button-color) 1px solid;
+    position: relative;
+}
+
+.content .done {
+    background-color: rgb(209, 209, 209);
+    text-decoration: line-through;
+    border: none;
 }
 
 .content > div > div p {
     pointer-events: none;
+}
+
+.content > div > div > div input{
+    position: absolute;
+    right: 5%;
+    top: 5%;
 }
 
 .header {
@@ -111,6 +134,14 @@ button:hover{
 .sidebar button{
     background-color: var(--button-color);
     color: white;
+    
+}
+
+.sidebar #add-task{
+    border: 1px solid var(--button-color);
+    box-shadow: 2px 2px grey;
+    width: fit-content;
+    background-color: white;
 }
 
 .task-modal{
@@ -124,5 +155,11 @@ button:hover{
     box-shadow: 4px 2px 4px gray;
     padding: 10px;
     border-radius: 10px;
+}
 
+button:hover, #add-task:hover{
+    background-color: var(--button-hover);
+    cursor: pointer;
+    color: white;
+    scale: 1.02;
 }

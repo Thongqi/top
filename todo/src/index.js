@@ -1,5 +1,5 @@
 import { addNewTask, displayNewTaskForm } from "./addtask.js"
-import { displayTask } from "./displaytasks.js"
+import { changeStatus, displayTask } from "./displaytasks.js"
 import { checkIfLocalStoragePresent } from "./localstorage.js"
 import { displaytaskmodal } from "./displaytaskmodal.js";
 
@@ -12,12 +12,14 @@ document.querySelector('#new-task-form #duedate').min = new Date().toISOString()
 
 displayTask(Tasks);
 addNewTask();
-displaytaskmodal();
+
 // addProject();
 // displayNewTaskForm();
 
 window.addEventListener('click', function(e){
-    console.log(e.target.id)
+    console.log(e.target.classList)
     displayNewTaskForm(e);
     addProject(e);
+    displaytaskmodal(e);
+    changeStatus(e);
 })

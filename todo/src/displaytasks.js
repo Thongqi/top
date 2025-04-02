@@ -1,6 +1,8 @@
 // import { Tasks } from "./addtask.js"
 
 import { format, parseISO } from "date-fns";
+import { Tasks } from ".";
+import { populateStorage } from "./localstorage";
 
 export function displayTask(tasks){
     clearTasksDom();
@@ -16,15 +18,23 @@ export function displayTask(tasks){
         const dueDate = document.createElement('p');
         dueDate.innerHTML = format(task.dueDate, 'dd/MM/yyyy');
 
-        container.append(title, dueDate);
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.classList.add('check-status');
+
+        container.append(title, dueDate,checkbox);
         var prioritygrid = checkpriority(task);
+
+        if(task.done){
+            changeDoneTaskCss(container);
+        }
 
         prioritygrid.append(container);
     }
 }
 
 function clearTasksDom(){
-    const grids = Array.from(document.querySelectorAll('.content div'));
+    const grids = Array.from(document.querySelectorAll('.content div div'));
 
     grids.forEach(grid => {
         grid.innerHTML = '';
@@ -45,4 +55,21 @@ function checkpriority(task){
     else{
         return document.querySelector('.priority-4')
     }
+}
+
+export function changeStatus(e){
+    if(e.target.classList.contains('check-status')){
+        const parentId = e.target.parentElement.id;
+
+        const task = Tasks.filter(task => task.id == parentId);
+        console.log(task);
+        task[0].done = true;
+        
+
+        changeDoneTaskCss(e.target.parentElement)
+    }
+}
+
+function changeDoneTaskCss(taskelement){
+    taskelement.classList.add('done');
 }

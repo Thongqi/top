@@ -15,6 +15,7 @@ export function Task(title, description, dueDate, priority, projectname){
     this.priority = priority;
     this.project = projectname;
     this.id = crypto.randomUUID();
+    this.done = false;
 
 };
 
@@ -23,7 +24,7 @@ export function displayNewTaskForm(e){
 
     // window.addEventListener('click', function(e){
 
-        if (e.target.id == 'add-task'){
+        if (e.target.id == 'add-task' || e.target.parentElement.parentElement.id == 'new-task-form' || e.target.parentElement.parentElement.parentElement.id == 'new-task-form'){
             form.style.display = 'block';
         }
         else{

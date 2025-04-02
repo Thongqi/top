@@ -8,25 +8,24 @@ let removeTimezone = (date) => {
     );
  };
 
-export function displaytaskmodal(){
+export function displaytaskmodal(e){
     let taskdetails;
+    const modal = document.querySelector('.task-modal');
 
-    const tasks = Array.from(document.querySelectorAll('.content .task'));
+    if (e.target.classList.contains('task')){
+        taskdetails = getTaskDetails(e.target.id);
 
-    tasks.forEach(task => {
-        task.addEventListener('click', function(e){
-            taskdetails = getTaskDetails(e.target.id);
-
-            const modal = document.querySelector('.task-modal');
-            modal.style.display = 'block';
-
-            modal.querySelector('#task-title').value = taskdetails.title;
-            modal.querySelector('#task-description').value = taskdetails.description;
-            modal.querySelector('#task-duedate').valueAsDate = parseISO(taskdetails.dueDate);
-        })
-    })
-
-   
+        
+        modal.style.display = 'block';
+    
+        modal.querySelector('#task-title').value = taskdetails.title;
+        modal.querySelector('#task-description').value = taskdetails.description;
+        modal.querySelector('#task-duedate').valueAsDate = parseISO(taskdetails.dueDate);
+    }
+    else{
+        modal.style.display = 'none';
+    }
+    
 }
 
 function getTaskDetails(taskId){
