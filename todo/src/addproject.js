@@ -1,33 +1,45 @@
 
-export function addProject(e){
-    var addbutton = document.querySelector('#add-new-project');
+function addProject(){
+    const input = document.querySelector('#add-project-input');
+    input.addEventListener('keydown', function(e){
+        if (e.key == 'Enter' && input.value != ''){
+            const projectlists = document.querySelector('.projects').children;
 
-    // window.addEventListener('click', function(e){
+            const newli = document.createElement('li');
+            newli.innerHTML = input.value;
 
-        if (e.target.id != 'add-project-input'){
-
+            // add newproject before button
+            projectlists[projectlists.length - 3].insertAdjacentElement("afterend", newli);
         }
-        else if (e.target.id == 'add-new-project'){
-            addInputElement();
-        }
-        else{
-            toggleDisplay(addbutton);
-        }
-    // })
-    
-
+    })
 
 }
 
-function addInputElement(){
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.id = 'add-project-input';
+export function displayElement(e){
+    var addbutton = document.querySelector('#add-new-project');
+
+    if (e.target.id == 'add-new-project'){
+        toggleInputElement();
+        toggleDisplay(addbutton);
+        addProject();
+    }
+    else if (e.target.id == 'add-project-input'){
+        
+    }
+    else{
+        if(addbutton.style.display == 'none'){
+            toggleDisplay(addbutton);
+            toggleInputElement();
+        }
+    }
+}
+
+function toggleInputElement(){
+
+    const input = document.querySelector('#add-project-input');
+    input.style.display = input.style.display === 'none' ? 'block' : 'none';
     input.focus();
 
-    const sidebar = document.querySelector('.sidebar ul');
-
-    sidebar.appendChild(input);
 }
 
 function toggleDisplay(element){

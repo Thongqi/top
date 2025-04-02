@@ -25,6 +25,7 @@ export function displayNewTaskForm(e){
     // window.addEventListener('click', function(e){
 
         if (e.target.id == 'add-task' || e.target.parentElement.parentElement.id == 'new-task-form' || e.target.parentElement.parentElement.parentElement.id == 'new-task-form'){
+        if (e.target.id == 'add-task' || e.target.parentElement.parentElement == form ){
             form.style.display = 'block';
         }
         else{

@@ -27,6 +27,9 @@ button, #add-task{
 
 .content{
     grid-area: content;
+}
+
+.content .priority{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;

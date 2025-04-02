@@ -4,7 +4,7 @@ import { checkIfLocalStoragePresent } from "./localstorage.js"
 import { displaytaskmodal } from "./displaytaskmodal.js";
 
 import "./style.css";
-import { addProject } from "./addproject.js";
+import { displayElement } from "./addproject.js";
 export let Tasks = checkIfLocalStoragePresent();
 
 // set min pickdate must be today or after
