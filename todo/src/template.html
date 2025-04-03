@@ -6,12 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <header class="header">TO DO OR NOT TO DO</header>
+    <header class="header">
+        <h1>TO DO OR NOT TO DO</h1>
+    </header>
     <section class="sidebar">
         <ul>
             <li id="add-task">Add task</li>
-            <li>Home</li>
-            <li>Today</li>
+            <li id="all-tasks">Home</li>
+            <li id="today-tasks">Today</li>
         </ul>
         <ul class="projects">
             <li>Project 1</li>
@@ -22,6 +24,7 @@
         
     </section>
     <section class="content">
+        <h2>All Tasks</h2>
         <div>
             <h3>DO FIRST</h3>
             <div class="priority-1"></div>
@@ -63,8 +66,10 @@
             <label for="duedate">Due Date</label>
             <input type="date" id="task-duedate">
         </div>
-        
+
+        <button id="edit-task">Edit</button>
     </div>
+
     <form action="" id="new-task-form">
         <div>
             <label for="title">Title</label>

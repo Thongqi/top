@@ -1,7 +1,8 @@
 import { displayTask } from "./displaytasks";
-import { populateStorage } from "./localstorage.js"
+import { populateTasksStorage } from "./localstorage.js"
 import { format } from "date-fns"
 import { Tasks } from "./index.js";
+import { addProject } from "./addproject.js";
 
 const DAYINSECONDS = 86400000;
 
@@ -24,7 +25,7 @@ export function displayNewTaskForm(e){
 
     // window.addEventListener('click', function(e){
 
-        if (e.target.id == 'add-task' || e.target.parentElement.parentElement.id == 'new-task-form' || e.target.parentElement.parentElement.parentElement.id == 'new-task-form'){
+        
         if (e.target.id == 'add-task' || e.target.parentElement.parentElement == form ){
             form.style.display = 'block';
         }
@@ -48,10 +49,13 @@ export function addNewTask(){
         
         var newtask = new Task(title, description, dueDate, priority, project);
         Tasks.push(newtask);
+        if (project){
+            addProject(project);
+        }
         console.log(Tasks);
 
         displayTask(Tasks);
-        populateStorage(Tasks)
+        populateTasksStorage(Tasks);
     });
 };
 

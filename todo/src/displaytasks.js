@@ -1,6 +1,7 @@
 // import { Tasks } from "./addtask.js"
 
 import { format, parseISO } from "date-fns";
+import { changeDoneTaskCss } from "./changetaskstatus";
 import { Tasks } from ".";
 import { populateStorage } from "./localstorage";
 
@@ -12,22 +13,25 @@ export function displayTask(tasks){
         container.id = task.id;
         container.classList.add('task');
 
-        const title = document.createElement('p');
+        const title = document.createElement('h4');
         title.innerHTML = task.title;
 
         const dueDate = document.createElement('p');
         dueDate.innerHTML = format(task.dueDate, 'dd/MM/yyyy');
 
+        const projectname = document.createElement('mark');
+        projectname.innerHTML = `#${task.project}`;
+
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.classList.add('check-status');
 
-        container.append(title, dueDate,checkbox);
+        container.append(title, dueDate, projectname, checkbox);
         var prioritygrid = checkpriority(task);
 
-        if(task.done){
-            changeDoneTaskCss(container);
-        }
+  
+        changeDoneTaskCss(container, task.done);
+  
 
         prioritygrid.append(container);
     }
@@ -57,19 +61,3 @@ function checkpriority(task){
     }
 }
 
-export function changeStatus(e){
-    if(e.target.classList.contains('check-status')){
-        const parentId = e.target.parentElement.id;
-
-        const task = Tasks.filter(task => task.id == parentId);
-        console.log(task);
-        task[0].done = true;
-        
-
-        changeDoneTaskCss(e.target.parentElement)
-    }
-}
-
-function changeDoneTaskCss(taskelement){
-    taskelement.classList.add('done');
-}

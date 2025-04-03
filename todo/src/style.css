@@ -1,40 +1,63 @@
 :root {
     --primary-bg: #E0F7FA;        /* Bright Aqua - Background */
-    --accent-color: #80DEEA;      /* Vivid Cyan - Accent */
+    --accent-color: #b5f7ff;      /* Vivid Cyan - Accent */
     --button-color: #425afa;      /* Deep Purple - Button */
-    --button-hover: #9C27B0;      /* Bright Purple - Button Hover */
+    --button-hover: #d15ce5;      /* Bright Purple - Button Hover */
     --text-color: #2a3163;        /* Indigo - Text */
 }
 
+@font-face {
+    font-family: 'Fredoka';
+    src: url('./Fredoka-VariableFont_wdth\,wght.ttf'),
+}
+
 body {
+    font-family: 'Fredoka';
     display: grid;
     grid-template-columns: 1fr 3fr;
+    grid-template-rows: 10% 90%;
     grid-template-areas: 
-        "header header"
+        "sidebar header"
         "sidebar content";
     background-color: var(--primary-bg);
     color: var(--text-color);
+    margin: 0;
+}
+
+h1{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+h3{
+    font-weight:500;
+}
+
+h4{
+    font-weight:400;
 }
 
 button, #add-task{
     padding: 5px 10px;
     border-radius: 10px;
     background-color: var(--button-color);
+    box-shadow: 2px 2px 3px rgba(180, 180, 180, 0.582);
+    font-family: inherit;
 }
 
 
-
-
-.content{
+.content {
     grid-area: content;
-}
-
-.content .priority{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 3fr 3fr;
     gap: 1rem;
-    padding: 0 1rem;
+    padding: 1rem;
+}
+
+.content h2{
+    grid-column: -1/1;
+    color: var(--text-color);
 }
 
 .content h3 {
@@ -42,31 +65,33 @@ button, #add-task{
     margin: 0;
     text-align: center;
     width: 100%;
-    background-color: #c6b7a3;
+    background-color: #ead7ef;
     margin-bottom: 5px;
 }
+
 .content > div {
 
     flex-wrap: wrap;
-    border: 1px solid var(--button-hover);
-    background-color: var(--primary-bg);
+    background-color: white;
     align-content: baseline;
     gap: 5px; 
     padding: 0.5rem; 
-    border-radius: 10px;
+    border-radius: 5px;
+    border-left: 2px #2a3163 solid
 }
 
 .content > div > div {
     display: flex;
+    gap: 5px;
 }
 .content > div > div > div{
     width: 125px;
     background-color: white;
-    color: var(--text-color);
     border-radius: 10px;
     padding: 0.5rem;
     border: var(--button-color) 1px solid;
     position: relative;
+    color:#383838;
 }
 
 .content .done {
@@ -75,8 +100,9 @@ button, #add-task{
     border: none;
 }
 
-.content > div > div p {
+.content > div > div p, .content > div > div h4{
     pointer-events: none;
+    margin: 0;
 }
 
 .content > div > div > div input{
@@ -87,8 +113,8 @@ button, #add-task{
 
 .header {
     grid-area:header;
-    
-    
+    padding: 1rem 1rem 0 1rem;
+    color: var(--text-color);
 }
 
 #new-task-form {
@@ -125,24 +151,28 @@ button, #add-task{
 .sidebar {
     grid-area: sidebar;
     padding: 10px;
-    border-right: 2px solid var(--button-color);
-    height: 90vh;
+    height: 98vh;
+    background-color: white;
+    box-shadow: 5px 0 10px rgb(182 200 203 / 43%);
 }
 
 .sidebar ul li{
     list-style-type: none;
     padding: 0.5rem 0 0.5rem 0.5rem;
+    cursor: pointer;
+}
+
+.sidebar li:hover{
+    background-color: var(--accent-color);
 }
 
 .sidebar button{
     background-color: var(--button-color);
     color: white;
-    
 }
 
 .sidebar #add-task{
     border: 1px solid var(--button-color);
-    box-shadow: 2px 2px grey;
     width: fit-content;
     background-color: white;
 }
@@ -155,7 +185,7 @@ button, #add-task{
     top: 10vw;
     left: 45vw;
     background-color: blanchedalmond;
-    box-shadow: 4px 2px 4px gray;
+    box-shadow: 4px 2px 4px rgba(197, 197, 197, 0.705), -4px -2px 4px rgba(197, 197, 197, 0.705);
     padding: 10px;
     border-radius: 10px;
 }

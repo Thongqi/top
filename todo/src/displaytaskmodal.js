@@ -1,3 +1,4 @@
+import { edittask } from "./edittask.js";
 import { Tasks } from "./index.js";
 import { parseISO } from "date-fns";
 
@@ -14,13 +15,20 @@ export function displaytaskmodal(e){
 
     if (e.target.classList.contains('task')){
         taskdetails = getTaskDetails(e.target.id);
-
+        modal.id = `modal-${e.target.id}`
         
         modal.style.display = 'block';
     
         modal.querySelector('#task-title').value = taskdetails.title;
         modal.querySelector('#task-description').value = taskdetails.description;
         modal.querySelector('#task-duedate').valueAsDate = parseISO(taskdetails.dueDate);
+    }
+    else if (e.target.parentElement.parentElement.classList.contains('task-modal')){
+        
+    }
+    else if (e.target.id == 'edit-task'){
+        const taskId = modal.id.slice(6);
+        edittask(taskId, Tasks);
     }
     else{
         modal.style.display = 'none';

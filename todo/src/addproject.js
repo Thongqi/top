@@ -1,15 +1,20 @@
+import { checkIfProjectsLocalStoragePresent, populateProjectsStorage } from "./localstorage";
+import { Projects } from "./index.js"
+import { displayProjectinSidebar, displayProjects } from "./displayprojects.js";
 
-function addProject(){
+export function addProject(projectname){
+    Projects.push(projectname);
+    populateProjectsStorage(Projects);
+    displayProjectinSidebar(projectname);
+}
+
+
+function addProjecttoSidebar(){
     const input = document.querySelector('#add-project-input');
     input.addEventListener('keydown', function(e){
         if (e.key == 'Enter' && input.value != ''){
-            const projectlists = document.querySelector('.projects').children;
-
-            const newli = document.createElement('li');
-            newli.innerHTML = input.value;
-
-            // add newproject before button
-            projectlists[projectlists.length - 3].insertAdjacentElement("afterend", newli);
+            displayProjectinSidebar(input.value);
+            addProject(input.value);
         }
     })
 
@@ -21,7 +26,7 @@ export function displayElement(e){
     if (e.target.id == 'add-new-project'){
         toggleInputElement();
         toggleDisplay(addbutton);
-        addProject();
+        addProjecttoSidebar();
     }
     else if (e.target.id == 'add-project-input'){
         
