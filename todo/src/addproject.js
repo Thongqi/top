@@ -5,7 +5,7 @@ import { displayProjectinSidebar, displayProjects } from "./displayprojects.js";
 export function addProject(projectname){
     Projects.push(projectname);
     populateProjectsStorage(Projects);
-    displayProjectinSidebar(projectname);
+
 }
 
 
@@ -15,6 +15,7 @@ function addProjecttoSidebar(){
         if (e.key == 'Enter' && input.value != ''){
             displayProjectinSidebar(input.value);
             addProject(input.value);
+            input.value = '';
         }
     })
 

@@ -22,6 +22,7 @@ export function displaytaskmodal(e){
         modal.querySelector('#task-title').value = taskdetails.title;
         modal.querySelector('#task-description').value = taskdetails.description;
         modal.querySelector('#task-duedate').valueAsDate = parseISO(taskdetails.dueDate);
+        modal.querySelector('#task-project').value = taskdetails.project;
     }
     else if (e.target.parentElement.parentElement.classList.contains('task-modal')){
         

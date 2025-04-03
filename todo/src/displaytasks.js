@@ -20,7 +20,7 @@ export function displayTask(tasks){
         dueDate.innerHTML = format(task.dueDate, 'dd/MM/yyyy');
 
         const projectname = document.createElement('mark');
-        projectname.innerHTML = `#${task.project}`;
+        projectname.innerHTML = task.project?`#${task.project}`: '';
 
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';

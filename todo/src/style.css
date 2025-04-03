@@ -1,5 +1,5 @@
 :root {
-    --primary-bg: #E0F7FA;        /* Bright Aqua - Background */
+    --primary-bg: #cdf9fe;        /* Bright Aqua - Background */
     --accent-color: #b5f7ff;      /* Vivid Cyan - Accent */
     --button-color: #425afa;      /* Deep Purple - Button */
     --button-hover: #d15ce5;      /* Bright Purple - Button Hover */
@@ -15,7 +15,7 @@ body {
     font-family: 'Fredoka';
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: 10% 90%;
+    grid-template-rows: minmax(50px, 5%) 95%;
     grid-template-areas: 
         "sidebar header"
         "sidebar content";
@@ -31,6 +31,7 @@ h1{
 
 h3{
     font-weight:500;
+    margin:0;
 }
 
 h4{
@@ -58,6 +59,7 @@ button, #add-task{
 .content h2{
     grid-column: -1/1;
     color: var(--text-color);
+    margin: 0;
 }
 
 .content h3 {
@@ -127,6 +129,7 @@ button, #add-task{
     left: 40vw;
     background-color: white;
     display: none;
+    box-shadow: 0 0 20px #989797d4;
 }
 
 #new-task-form div, .task-modal div{
@@ -162,13 +165,23 @@ button, #add-task{
     cursor: pointer;
 }
 
-.sidebar li:hover{
+ .sidebar li.focus, .sidebar li:hover{
     background-color: var(--accent-color);
 }
+
 
 .sidebar button{
     background-color: var(--button-color);
     color: white;
+    display: flex;
+    gap: 3px;
+    font-size: 16px;
+}
+
+.sidebar button svg {
+    max-width: 1rem;
+    max-height: 1rem;
+    fill: white;
 }
 
 .sidebar #add-task{
