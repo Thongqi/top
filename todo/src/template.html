@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>To do or not to do</title>
 </head>
 <body>
@@ -11,19 +13,14 @@
     </header>
     <section class="sidebar">
         <ul>
-            <li id="add-task">Add task</li>
-            <li id="all-tasks">Home</li>
-            <li id="today-tasks">Today</li>
+            <li id="add-task"><i class='fa fa-plus-circle'></i>Add task</li>
+            <li id="all-tasks"><i class='fa fa-home'></i>Home</li>
+            <li id="today-tasks"><i class='fa fa-calendar-o'></i>Today</li>
+            <li id="all-tasks"><i class='fa fa-calendar'></i>Tomorrow</li>
         </ul>
         <ul class="projects">
             <h3>My Project</h3>
-            <button type="button" id="add-new-project">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
-                    <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 11 7 L 11 11 L 7 11 L 7 13 L 11 13 L 11 17 L 13 17 L 13 13 L 17 13 L 17 11 L 13 11 L 13 7 L 11 7 z"></path>
-                    </svg>
-                </span> 
-                New project</button>
+            <button type="button" id="add-new-project"><i class="fa fa-file-o"></i>New project</button>
             <input type="text" name="" id="add-project-input" autofocus style="display: none;">
         </ul>
             
@@ -78,7 +75,11 @@
             <input type="text" id="task-project">
         </div>
 
-        <button id="edit-task">Edit</button>
+        <div class="buttons">
+            <button><i class="fa fa-trash-o"></i></button>
+            <button id="edit-task">Edit</button>
+        </div>
+
     </div>
 
     <form action="" id="new-task-form">

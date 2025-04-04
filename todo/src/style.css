@@ -44,6 +44,7 @@ button, #add-task{
     background-color: var(--button-color);
     box-shadow: 2px 2px 3px rgba(180, 180, 180, 0.582);
     font-family: inherit;
+    border-width: 1px;
 }
 
 
@@ -96,6 +97,12 @@ button, #add-task{
     color:#383838;
 }
 
+.content .task p{
+    font-weight: 300;
+    font-size: 0.8rem;
+    float:right;
+}
+
 .content .done {
     background-color: rgb(209, 209, 209);
     text-decoration: line-through;
@@ -140,7 +147,7 @@ button, #add-task{
 #new-task-form div label, .task-modal label{
     width: 100px;
     text-align: left;
-    display: inline-block;
+    display: block;
 }
 
 #new-task-form button{
@@ -163,6 +170,14 @@ button, #add-task{
     list-style-type: none;
     padding: 0.5rem 0 0.5rem 0.5rem;
     cursor: pointer;
+}
+
+.sidebar ul i{
+    padding-right:5px;
+}
+
+.sidebar ul input{
+    padding: 2px;
 }
 
  .sidebar li.focus, .sidebar li:hover{
@@ -203,7 +218,21 @@ button, #add-task{
     border-radius: 10px;
 }
 
-button:hover, #add-task:hover{
+.task-modal input {
+    width: -webkit-fill-available;
+}
+
+.task-modal .buttons {
+    display: flex
+;
+    justify-content: space-between;
+}
+
+.task-modal .buttons button:first-child {
+    background-color: white;
+}
+
+button:hover, #add-task:hover, .task-modal .buttons button:first-child:hover{
     background-color: var(--button-hover);
     cursor: pointer;
     color: white;
