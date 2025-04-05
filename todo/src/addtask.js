@@ -1,10 +1,10 @@
 import { displayTask } from "./displaytasks";
-import { populateTasksStorage } from "./localstorage.js"
+import { checkIfProjectsLocalStoragePresent, populateTasksStorage } from "./localstorage.js"
 import { format } from "date-fns"
 import { Tasks } from "./index.js";
 import { addProject } from "./addproject.js";
 
-const DAYINSECONDS = 86400000;
+export const DAYINSECONDS = 86400000;
 
 
 
@@ -49,7 +49,7 @@ export function addNewTask(){
         
         var newtask = new Task(title, description, dueDate, priority, project);
         Tasks.push(newtask);
-        if (project){
+        if (project && checkIfProjectsLocalStoragePresent().indexOf(project) < 0){
             addProject(project);
         }
         console.log(Tasks);

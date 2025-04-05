@@ -1,11 +1,11 @@
 import { checkIfProjectsLocalStoragePresent, populateProjectsStorage } from "./localstorage";
 import { Projects } from "./index.js"
-import { displayProjectinSidebar, displayProjects } from "./displayprojects.js";
+import { displayProjectinSidebar } from "./displayprojects.js";
 
 export function addProject(projectname){
     Projects.push(projectname);
     populateProjectsStorage(Projects);
-
+    displayProjectinSidebar(projectname);
 }
 
 
@@ -13,7 +13,6 @@ function addProjecttoSidebar(){
     const input = document.querySelector('#add-project-input');
     input.addEventListener('keydown', function(e){
         if (e.key == 'Enter' && input.value != ''){
-            displayProjectinSidebar(input.value);
             addProject(input.value);
             input.value = '';
         }

@@ -1,4 +1,4 @@
-import { updateTasksLocalStorage } from "./localstorage";
+import { editTask } from "./localstorage";
 import { parseISO } from "date-fns";
 
 export function edittask(taskId, Tasks){
@@ -10,7 +10,7 @@ export function edittask(taskId, Tasks){
     Tasks[index].description = taskmodal.querySelector('#task-description').value;
     Tasks[index].dueDate = parseISO(taskmodal.querySelector('#task-duedate').value);
 
-    updateTasksLocalStorage(Tasks[index]);
+    editTask(Tasks[index]);
  
    
 }

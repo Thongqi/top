@@ -112,6 +112,7 @@ button, #add-task{
 .content > div > div p, .content > div > div h4{
     pointer-events: none;
     margin: 0;
+    padding-top: 0.5rem;
 }
 
 .content > div > div > div input{
@@ -184,6 +185,10 @@ button, #add-task{
     background-color: var(--accent-color);
 }
 
+.sidebar .tasks-count{
+    float:right;
+    padding-right: 2rem;
+}
 
 .sidebar button{
     background-color: var(--button-color);
@@ -223,13 +228,16 @@ button, #add-task{
 }
 
 .task-modal .buttons {
-    display: flex
-;
+    display: flex;
     justify-content: space-between;
 }
 
 .task-modal .buttons button:first-child {
     background-color: white;
+}
+
+.task-modal i{
+    pointer-events: none;
 }
 
 button:hover, #add-task:hover, .task-modal .buttons button:first-child:hover{

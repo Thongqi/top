@@ -1,3 +1,4 @@
+import { deleteTask } from "./deletetask.js";
 import { edittask } from "./edittask.js";
 import { Tasks } from "./index.js";
 import { parseISO } from "date-fns";
@@ -12,6 +13,7 @@ let removeTimezone = (date) => {
 export function displaytaskmodal(e){
     let taskdetails;
     const modal = document.querySelector('.task-modal');
+    const taskId = modal.id.slice(6);
 
     if (e.target.classList.contains('task')){
         taskdetails = getTaskDetails(e.target.id);
@@ -23,13 +25,18 @@ export function displaytaskmodal(e){
         modal.querySelector('#task-description').value = taskdetails.description;
         modal.querySelector('#task-duedate').valueAsDate = parseISO(taskdetails.dueDate);
         modal.querySelector('#task-project').value = taskdetails.project;
+
+    }
+    else if (e.target.id == 'edit-task'){
+
+        edittask(taskId, Tasks);
+    }
+    else if (e.target.id == 'delete-task'){
+        deleteTask(taskId, Tasks);
+        modal.style.display = 'none';
     }
     else if (e.target.parentElement.parentElement.classList.contains('task-modal')){
         
-    }
-    else if (e.target.id == 'edit-task'){
-        const taskId = modal.id.slice(6);
-        edittask(taskId, Tasks);
     }
     else{
         modal.style.display = 'none';

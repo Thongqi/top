@@ -12,11 +12,11 @@
         <h1>TO DO OR NOT TO DO</h1>
     </header>
     <section class="sidebar">
-        <ul>
+        <ul class="tasks">
             <li id="add-task"><i class='fa fa-plus-circle'></i>Add task</li>
-            <li id="all-tasks"><i class='fa fa-home'></i>Home</li>
-            <li id="today-tasks"><i class='fa fa-calendar-o'></i>Today</li>
-            <li id="all-tasks"><i class='fa fa-calendar'></i>Tomorrow</li>
+            <li id="all-tasks"><i class='fa fa-home'></i>Home<span class="tasks-count">1</span></li>
+            <li id="today-tasks"><i class='fa fa-calendar-o'></i>Today<span class="tasks-count">1</span></li>
+            <li id="tmr-tasks"><i class='fa fa-calendar'></i>Tomorrow<span class="tasks-count">1</span></li>
         </ul>
         <ul class="projects">
             <h3>My Project</h3>
@@ -76,7 +76,7 @@
         </div>
 
         <div class="buttons">
-            <button><i class="fa fa-trash-o"></i></button>
+            <button id="delete-task"><i class="fa fa-trash-o"></i></button>
             <button id="edit-task">Edit</button>
         </div>
 
