@@ -34,7 +34,7 @@
     display: none;
 }
 
-.horizontal-navbar .dropdown-list .show{
+.horizontal-navbar .dropdown-list.show{
     display: block;
     position: absolute;
 }
