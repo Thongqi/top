@@ -1,6 +1,5 @@
 .horizontal-navbar{
     display: flex;
- 
 }
 
 .horizontal-navbar div {
@@ -48,7 +47,7 @@
 .horizontal-navbar .dropdown-list.show, .dropdown-hover:hover .dropdown-list{
     display: block;
     position: absolute;
-    padding: 5px;
+    padding: 5px 5px 5px 0;
     width: fit-content;
     left: 0;
 }
