@@ -1,1 +1,21 @@
+.horizontal-navbar{
+    display: flex;
+}
+
+.horizontal-navbar>div>ul{
+    display: flex;
+}
+
+.horizontal-navbar li:hover{
+    background-color: skyblue;
+}
+
+.horizontal-navbar .dropdown-list{
+    display: none;
+}
+
+.horizontal-navbar .dropdown-list .show{
+    display: block;
+    position: absolute;
+}
 
