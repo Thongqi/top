@@ -1,5 +1,5 @@
 function displayDropdownList(e){
-    e.nextElementSibling.classList.toggle('show');
+    e.querySelector('.dropdown-list').classList.toggle('show');
 }
 
 window.onclick = function(e){
