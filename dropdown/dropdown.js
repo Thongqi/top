@@ -3,10 +3,10 @@ function displayDropdownList(e){
 }
 
 window.onclick = function(e){
-    console.log(e)
-    if (e.target.matches('.dropdown-click')){
+
+    if (!e.target.matches('.dropdown-click')){
         document.querySelectorAll('.dropdown-list').forEach(list => {
-            if (list.classList.contains('.show')){
+            if (list.classList.contains('show')){
                 list.classList.remove('show');
             }
         })
