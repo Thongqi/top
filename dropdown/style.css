@@ -1,11 +1,17 @@
 .horizontal-navbar{
     display: flex;
+    width: 100%;  
 }
 
 .horizontal-navbar>div>ul{
     display: flex;
+    justify-content: space-around;
 }
 
+.horizontal-navbar a{
+    text-decoration:none;
+    color: inherit;
+}
 .horizontal-navbar li{
     list-style-type: none;
 }
@@ -17,7 +23,9 @@
 .horizontal-navbar li button{
     background-color: none;
     border-width: 0px;
-    
+    font-family: inherit;
+    font-size: inherit;
+
 }
 .horizontal-navbar .dropdown-list{
     display: none;
