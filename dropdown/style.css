@@ -1,8 +1,11 @@
 .horizontal-navbar{
     display: flex;
-    width: 100%;  
+ 
 }
 
+.horizontal-navbar div {
+    width: 100%; 
+}
 .horizontal-navbar>div>ul{
     display: flex;
     justify-content: space-around;
