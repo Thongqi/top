@@ -6,10 +6,19 @@
     display: flex;
 }
 
+.horizontal-navbar li{
+    list-style-type: none;
+}
+
 .horizontal-navbar li:hover{
     background-color: skyblue;
 }
 
+.horizontal-navbar li button{
+    background-color: none;
+    border-width: 0px;
+    
+}
 .horizontal-navbar .dropdown-list{
     display: none;
 }
