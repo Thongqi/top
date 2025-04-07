@@ -44,7 +44,7 @@
     padding: 10px;
 }
 
-.horizontal-navbar .dropdown-list.show{
+.horizontal-navbar .dropdown-list.show, .dropdown-hover:hover .dropdown-list{
     display: block;
     position: absolute;
     padding: 5px;
