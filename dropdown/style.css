@@ -19,6 +19,7 @@
 .horizontal-navbar li{
     list-style-type: none;
     padding: 10px;
+    position: relative;
 }
 
 .horizontal-navbar li:hover{
@@ -49,6 +50,7 @@
     position: absolute;
     padding: 5px;
     width: fit-content;
+    left: 0;
 }
 
 
