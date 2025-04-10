@@ -1,4 +1,6 @@
-function displayDropdownList(e){
+import "./dropdown.css";
+
+module.exports = function displayDropdownList(e){
     e.querySelector('.dropdown-list').classList.toggle('show');
 }
 
