@@ -1,0 +1,39 @@
+.container {
+    width: 100%;
+}
+
+.container .card-slider{
+    width: 100%;
+    position: relative;
+}
+
+.card-slider .image-container{
+    display: flex;
+    gap: 2rem;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    list-style-type: none;
+    border: 1px slateblue solid;
+}
+
+.card-slider .card-slider-button{
+    position: absolute;
+    top: 50%;
+    height: 1rem;
+}
+
+.card-slider #card-slider-before{
+    left: 0;
+}
+
+.card-slider #card-slider-before{
+    right: 0;
+}
+
+
+.card-slider .image-item {
+    width: 325px;
+    height: 400px;
+    object-fit: cover;
+}
