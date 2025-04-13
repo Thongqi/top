@@ -1,5 +1,10 @@
+body{
+    box-sizing: border-box;
+}
+
 .container {
     width: 100%;
+    position: relative;
 }
 
 .container .card-slider{
@@ -10,25 +15,32 @@
 .card-slider .image-container{
     display: flex;
     gap: 2rem;
-    overflow-x: hidden;
+    overflow-x: auto;
     scrollbar-width: none;
     scroll-behavior: smooth;
     list-style-type: none;
-    border: 1px slateblue solid;
+
 }
 
 .card-slider .card-slider-button{
     position: absolute;
     top: 50%;
     height: 1rem;
+    border: none;
+    background-color: transparent;
+    height: fit-content;
+}
+
+.card-slider .card-slider-button:hover svg{
+    scale: 1.2;
 }
 
 .card-slider #card-slider-before{
-    left: 0;
+    left: 1rem;
 }
 
-.card-slider #card-slider-before{
-    right: 0;
+.card-slider #card-slider-next{
+    right: 1rem;
 }
 
 
@@ -36,4 +48,6 @@
     width: 325px;
     height: 400px;
     object-fit: cover;
+    border: 1px slateblue solid;
+    flex-shrink: 0;
 }
